@@ -2,7 +2,12 @@ import React from "react";
 import { FaBookOpen } from "react-icons/fa";
 import Human1 from"../assets/image/Human1.jpg"
 import { Star, Award, CheckCircle, Heart } from 'lucide-react';
-import { ShieldCheck, BookOpen, Circle } from "lucide-react";
+import { ShieldCheck, BookOpen, Circle,  } from "lucide-react";
+// import { PiMedalLight } from "react-icons/pi";
+import { PiMedalLight } from "react-icons/pi";
+import {  FaUsers, FaUserGraduate } from "react-icons/fa";
+import Footer from './Footer'
+
 
  const values = [
     {
@@ -30,6 +35,8 @@ import { ShieldCheck, BookOpen, Circle } from "lucide-react";
 
 const About = () => {
   return (
+
+    <>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans">
       <div className="">
         <h1 className="text-center text-md md:text-3xl sm:text-2xl text-gray-800">
@@ -194,7 +201,7 @@ const About = () => {
                   </div>
                   
                   {/* Students Guided */}
-                  <div className="text-center bg-yellow-50 rounded-lg p-4">
+                  <div className="text-center bg-yellow-50 rounded-lg p-4 p">
                     <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-1">
                       50,000+
                     </div>
@@ -208,7 +215,7 @@ const About = () => {
           </div>
           
           {/* Mission Statement Section */}
-          <div className="bg-yellow-100 mx-6 sm:mx-8 lg:mx-10 mb-6 sm:mb-8 lg:mb-10 rounded-lg p-4 sm:p-6">
+          <div className="bg-yellow-100 mx-6 sm:mx-8 lg:mx-10 mb-6 sm:mb-8 lg:mb-10 rounded-lg p-4 sm:p-6 mt-10">
             <div className="flex items-start space-x-3">
               <Heart className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
               <div>
@@ -252,7 +259,105 @@ const About = () => {
         ))}
       </div>
     </section>
+
+{/* Why Choose CA ki Stock Market?  */}
+<div className="border-t-2  py-12 px-6 md:px-12 lg:px-20 bg-white border md:border-gray-200 rounded-md">
+  {/* Title Section */}
+  <div className="text-center mb-10">
+    <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+      Why Choose CA ki Stock Market?
+    </h1>
+    <p className="text-gray-600 text-sm md:text-base mt-2">
+      We stand apart from other platforms through our commitment to authenticity
+    </p>
+  </div>
+
+  {/* 4 Feature Boxes */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
+    {/* Box 1 */}
+    <div className="bg-white p-6 rounded-xl    flex flex-col items-center text-center ">
+      <div className="bg-yellow-100 p-4 rounded-full mb-4">
+        <PiMedalLight className="text-yellow-600 text-3xl" />
+      </div>
+      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+        CA Certified
+      </h2>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        All courses designed and led by qualified Chartered Accountants
+      </p>
     </div>
+
+    {/* Box 2 */}
+    <div className="bg-white p-6 rounded-xl   flex flex-col items-center text-center ">
+      <div className="bg-yellow-100 p-4 rounded-full mb-4">
+        <PiMedalLight className="text-yellow-600 text-3xl" />
+      </div>
+      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+        SEBI Compliant
+      </h2>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        Full compliance with regulatory standards and legal requirements
+      </p>
+    </div>
+
+    {/* Box 3 */}
+    <div className="bg-white p-6 rounded-xl    flex flex-col items-center text-center ">
+      <div className="bg-yellow-100 p-4 rounded-full mb-4">
+        <PiMedalLight className="text-yellow-600 text-3xl" />
+      </div>
+      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+        Community Focus
+      </h2>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        Building a community of informed, ethical traders and investors
+      </p>
+    </div>
+
+    {/* Box 4 */}
+    <div className="bg-white p-6 rounded-xl   flex flex-col items-center text-center">
+      <div className="bg-yellow-100 p-4 rounded-full mb-4">
+        <PiMedalLight className="text-yellow-600 text-3xl" />
+      </div>
+      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+        Student First
+      </h2>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        Your success is our priority - affordable, accessible education for all
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ <div className="bg-yellow-400 py-10 px-6 md:px-12 lg:px-20 text-center rounded-md">
+      <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-gray-900 mb-4">
+        Ready to Join Our Mission?
+      </h2>
+      <p className="text-base sm:text-lg md:text-md text-gray-800 mb-6 mx-auto">
+      Be part of the change towards transparent and authentic financial education
+      </p>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <button className="w-full sm:w-auto bg-gray-900 text-white px-6 py-1 rounded-md hover:bg-gray-800 transition">
+         Explore Our Courses
+        </button>
+        <button className="w-full sm:w-auto bg-white  text-gray-900 border border-gray-900 px-6 py-1 rounded-md md:hover:bg-gray-900 md:hover:text-white
+         transition">
+         Get in Touch
+        </button>
+      </div>
+    </div>
+
+
+
+    </div>
+
+    <Footer/>
+  
+
+</>
   );
 };
 
