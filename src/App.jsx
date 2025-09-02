@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import UserDashboard from "./pages/UserDashboard"; 
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+           <Route path="/user-dashboard" element={<UserDashboard />} />
       </Routes>
     </Router>
 

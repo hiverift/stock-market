@@ -7,6 +7,16 @@ import { ShieldCheck, BookOpen, Circle,  } from "lucide-react";
 import { PiMedalLight } from "react-icons/pi";
 import {  FaUsers, FaUserGraduate } from "react-icons/fa";
 import Footer from './Footer'
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { BsFilterCircle } from "react-icons/bs";
+import { AiOutlineSecurityScan,  } from "react-icons/ai";
+import { RiGroupLine } from "react-icons/ri";
+import { CiHeart } from "react-icons/ci";
+
+
+
+
+
 
 
  const values = [
@@ -37,64 +47,76 @@ const About = () => {
   return (
 
     <>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans">
-      <div className="">
-        <h1 className="text-center text-md md:text-3xl sm:text-2xl text-gray-800">
-          About CA ki Stock Market
-        </h1>
-        <p className="text-center text-gray-600">
-          Your trusted partner in legal, secure, and transparent financial
-          education
-        </p>
-      </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans ">
+   <div className="text-center py-8">
+  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+    About CA ki Stock Market
+  </h1>
+  <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+    Your trusted partner in legal, secure, and transparent financial education
+  </p>
+  {/* Divider Line */}
+  <div className="mt-4 w-16 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+</div>
+
 
       {/* hero section   */}
 
-      <div className="main div flex items-center justify-evenly">
+     <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 lg:px-20 py-12 bg-white">
+  {/* Left Section */}
+  <div className="md:w-1/2 space-y-6">
+    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+      Who We Are
+    </h1>
+    <p className="text-gray-600 leading-relaxed">
+      CA ki Stock Market is a comprehensive educational and consultancy
+      platform founded with a clear mission: <span className="font-bold text-gray-800">Learn</span> | <span className="font-bold text-gray-800">Earn</span> | <span className="font-bold text-gray-800">Grow </span>
+      with complete transparency and authenticity.
+    </p>
+    <p className="text-gray-600 leading-relaxed">
+      We are dedicated to providing high-quality financial education that
+      empowers individuals to make informed investment decisions. Our
+      platform serves as a beacon of trust in an industry often plagued by
+      fraudulent advisory services.
+    </p>
+
+    {/* Icons Section */}
+   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+  <div className="flex flex-col items-center text-center space-y-2">
+    <div className="bg-yellow-100   p-4 rounded-full flex items-center justify-center">
+      <FaBookOpen className=" text-2xl text-amber-500" />
+    </div>
+    <h1 className="text-lg font-semibold">Learn</h1>
+    <p className="text-sm text-gray-500">Expert Education</p>
+  </div>
+  
+  <div className="flex flex-col items-center text-center space-y-2">
+    <div className="bg-yellow-100  p-4 rounded-full flex items-center justify-center">
+      <FaArrowTrendUp className=" text-2xl text-amber-500" />
+    </div>
+    <h1 className="text-lg font-semibold">Earn</h1>
+    <p className="text-sm text-gray-500">Financial Growth</p>
+  </div>
+  
+  <div className="flex flex-col items-center text-center space-y-2">
+    <div className="bg-yellow-100  p-4 rounded-full flex items-center justify-center">
+      <BsFilterCircle className=" text-2xl text-amber-500" />
+    </div>
+    <h1 className="text-lg font-semibold">Grow</h1>
+    <p className="text-sm text-gray-500">With Transparency</p>
+  </div>
+</div>
 
 
-        <div className="leftdiv">
-          <h1 className="text-md sm:text-xl md:2xl xl:text-3xl ">Who We Are</h1>
-          <p className="">
-            CA ki Stock Market is a comprehensive educational and consultancy
-            platform founded with a clear mission: Learn | Earn | Grow with
-            complete transparency and authenticity.
-          </p>
+    
+  </div>
 
-          <p className="">
-            We are dedicated to providing high-quality financial education that
-            empowers individuals to make informed investment decisions. Our
-            platform serves as a beacon of trust in an industry often plagued by
-            fraudulent advisory services.
-          </p>
+  {/* Right Section */}
+  <div className="md:w-1/2 flex justify-center">
+    <img src={Human1} alt="Who We Are" className="w-full max-w-md rounded-lg shadow-md" />
+  </div>
+</div>
 
-          <div className="icon main div flex ">
-
-            <div className="">
-              <FaBookOpen />
-            <h1 className="text-md sm:text-xl md:text-2xl">Learn</h1>
-            <p className="">Expert Education</p>
-            </div>
-                 <div className="">
-              <FaBookOpen />
-            <h1 className="text-md sm:text-xl md:text-2xl">Learn</h1>
-            <p className="">Expert Education</p>
-            </div>
-                 <div className="">
-              <FaBookOpen />
-            <h1 className="text-md sm:text-xl md:text-2xl">Learn</h1>
-            <p className="">Expert Education</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div className="rightdiv  ">
-          <img src={Human1} alt="" />
-
-        </div>
-
-      </div>
 
 
 
@@ -290,7 +312,7 @@ const About = () => {
     {/* Box 2 */}
     <div className="bg-white p-6 rounded-xl   flex flex-col items-center text-center ">
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
-        <PiMedalLight className="text-yellow-600 text-3xl" />
+        <AiOutlineSecurityScan  className="text-yellow-600 text-3xl" />
       </div>
       <h2 className="text-lg font-semibold text-gray-900 mb-2">
         SEBI Compliant
@@ -303,7 +325,7 @@ const About = () => {
     {/* Box 3 */}
     <div className="bg-white p-6 rounded-xl    flex flex-col items-center text-center ">
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
-        <PiMedalLight className="text-yellow-600 text-3xl" />
+        <RiGroupLine  className="text-yellow-600 text-3xl" />
       </div>
       <h2 className="text-lg font-semibold text-gray-900 mb-2">
         Community Focus
@@ -316,7 +338,7 @@ const About = () => {
     {/* Box 4 */}
     <div className="bg-white p-6 rounded-xl   flex flex-col items-center text-center">
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
-        <PiMedalLight className="text-yellow-600 text-3xl" />
+        <CiHeart  className="text-yellow-600 text-3xl" />
       </div>
       <h2 className="text-lg font-semibold text-gray-900 mb-2">
         Student First

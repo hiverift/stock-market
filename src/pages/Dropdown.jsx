@@ -100,13 +100,13 @@ const FAQSection = () => {
         ))}
       </div>
 
-      <div className="text-center p-10">
-        <p className="text-sm text-gray-600">Still have questions?</p>
+      <div className="text-center p-10 ">
+        <p className="text-sm md:pb-2 text-gray-600">Still have questions?</p>
 
         <Link to="/Contact">
           <button
             data-slot="button"
-          className=" border border-gray-400 px-6 rounded text-black"
+          className=" border border-gray-400 px-6 rounded text-black "
           >
             Contact Support
           </button>

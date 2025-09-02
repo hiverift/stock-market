@@ -24,7 +24,7 @@ function Navbar() {
         <nav className="py-3">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="text-2xl font-bold flex items-center gap-2">
+            <Link to="/" className="text-2xl  flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -40,7 +40,7 @@ function Navbar() {
                 <path d="M16 7h6v6"></path>
                 <path d="m22 7-8.5 8.5-5-5L2 17"></path>
               </svg>
-              CA Stock Market
+             <p className="text-xl"> CA Stock Market</p>
             </Link>
 
             {/* Desktop Links */}

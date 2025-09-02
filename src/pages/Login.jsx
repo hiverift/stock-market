@@ -1,9 +1,70 @@
-
 import { useState } from "react";
 import { EnvelopeIcon, PhoneIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("mobile");
+  const [formData, setFormData] = useState({ email: "", mobile: "", password: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    // Validate inputs
+    if ((activeTab === "email" && !formData.email) || (activeTab === "mobile" && !formData.mobile)) {
+      Swal.fire("Error", "Please enter your credentials", "error");
+      return;
+    }
+    if (!formData.password) {
+      Swal.fire("Error", "Please enter your password", "error");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const payload = activeTab === "email"
+        ? { email: formData.email, password: formData.password, role: "user" }
+        : { mobile: formData.mobile, password: formData.password, role: "user" }; // adjust backend if mobile login is supported
+
+      const response = await axios.post(
+        "http://69.62.78.239:4000/api/v1/auth/login",
+        payload,
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      const user = response.data.result.user;
+
+      Swal.fire("Success", response.data.message, "success");
+
+      // Store tokens & user info
+      localStorage.setItem("accessToken", response.data.result.accessToken);
+      localStorage.setItem("refreshToken", response.data.result.refreshToken);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Redirect based on role
+      if (user.role === "admin") navigate("/admin-dashboard");
+      else navigate("/user-dashboard");
+
+    } catch (error) {
+      if (error.response) {
+        Swal.fire("Error", error.response.data.message || "Login failed", "error");
+      } else if (error.request) {
+        Swal.fire("Error", "No response from server. Try again later.", "error");
+      } else {
+        Swal.fire("Error", error.message, "error");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
@@ -43,7 +104,7 @@ function LoginPage() {
         </div>
 
         {/* Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleLogin}>
           {activeTab === "mobile" && (
             <div>
               <label className="text-sm font-medium text-gray-700">Mobile Number</label>
@@ -51,6 +112,9 @@ function LoginPage() {
                 <PhoneIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 <input
                   type="text"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
                   placeholder="Enter your mobile number"
                   className="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
                 />
@@ -65,6 +129,9 @@ function LoginPage() {
                 <EnvelopeIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Enter your email"
                   className="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
                 />
@@ -79,6 +146,9 @@ function LoginPage() {
               <LockClosedIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Enter your password"
                 className="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
               />
@@ -87,17 +157,16 @@ function LoginPage() {
 
           {/* Forgot Password */}
           <div className="flex justify-end">
-            <a href="#" className="text-sm text-orange-600 hover:underline">
-              Forgot Password?
-            </a>
+            <a href="#" className="text-sm text-orange-600 hover:underline">Forgot Password?</a>
           </div>
 
           {/* Sign In Button */}
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-yellow-400 text-black font-medium py-2 rounded-lg hover:bg-yellow-500 transition"
           >
-            Sign In
+            {loading ? "Logging in..." : "Sign In"}
           </button>
         </form>
 
@@ -107,9 +176,7 @@ function LoginPage() {
         {/* Footer */}
         <p className="text-center text-sm text-gray-600">
           New to CA ki Stock Market?{" "}
-          <a href="#" className="text-yellow-600 font-medium hover:underline">
-            Register here
-          </a>
+          <a href="#" className="text-yellow-600 font-medium hover:underline">Register here</a>
         </p>
       </div>
 
@@ -118,7 +185,6 @@ function LoginPage() {
         Your data is protected with bank-level security
       </p>
     </div>
-    
   );
 }
 
