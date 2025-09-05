@@ -20,6 +20,8 @@ import MyWebinars from "./userdashboard/MyWebinars";
 import Groups from "./userdashboard/Groups";
 import ProfileKYC from "./userdashboard/ProfileKYC";
 import DashboardHome from "./userdashboard/DashboardHome";
+import CheckoutPage from "./pages/CheckoutPage";
+import Appointment from "./pages/Appointment";
 
 // Wrapper to conditionally show Navbar
 const AppWrapper = ({ children }) => {
@@ -59,6 +61,9 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+           <Route path="/checkout" element={<CheckoutPage />} />
+             <Route path="/Appointment" element={<Appointment />} />
+
 
           {/* User Dashboard nested routes */}
        <Route path="/user-dashboard" element={<UserDashboard />}>

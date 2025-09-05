@@ -3,7 +3,7 @@ import React from 'react';
 const Subfooter = () => {
   return (
     <div className="bg-yellow-400 py-10 px-6 md:px-12 lg:px-20 text-center">
-      <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-gray-900 mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-2xl  text-gray-900 mb-4">
         Ready to Start Your Trading Journey?
       </h2>
       <p className="text-base sm:text-lg md:text-md text-gray-800 mb-6 mx-auto">

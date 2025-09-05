@@ -23,26 +23,37 @@ const specializations = [
   { name: "Compliance/Legal", icon: <FaBalanceScale /> },
 ];
 
-const Consultancy = () => {
+
+
+const Consultancy = ({ showFooter = true, fullWidth = false , compact = false }) => {
   return (
 
-        <>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans">
+    <>
+  
+    <div
+      className={`${
+        fullWidth ? " md:ml-64 " : "max-w-7xl mx-auto"
+      } px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans`}
+    >
+      {/* ... baaki content ... */}
+
+
+    <div className="">
       {/* Header + Search */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 py-5">
         {/* Left Section */}
         <div className="space-y-2 text-center md:text-left">
           <h2 className="text-3xl md:text-2xl text-gray-900 font-sans">
-            Explore Our Courses
+          Expert Consultancy
           </h2>
           <p className="text-gray-700 text-sm">
-            Learn from expert CAs and master the stock market
+            Get personalized guidance from qualified CAs
           </p>
           <Link
             to="/courses"
             className="text-yellow-600 text-xs font-medium hover:underline"
           >
-            Login required to enroll in courses
+            {/* Login required to enroll in courses */}
           </Link>
         </div>
 
@@ -66,9 +77,9 @@ const Consultancy = () => {
       </div>
 
       {/* CTA Box */}
-      <div className="md:hover:bg-yellow-50 bg-yellow-100 border border-yellow-300 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition">
+      {/* <div className="md:hover:bg-yellow-50 bg-yellow-100 border border-yellow-300 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition">
         <div className="text-center md:text-left space-y-1">
-          <h3 className="text-lg font-semibold text-gray-900">
+          <h3 className="text-lg text-gray-900">
             Ready to Start Learning?
           </h3>
           <p className="text-gray-700 text-sm">
@@ -89,12 +100,12 @@ const Consultancy = () => {
             Sign Up Free
           </Link>
         </div>
-      </div>
+      </div> */}
 
 {/* section  */}
 
-     <section className="w-full  px-4 sm:px-6 lg:px-8">
-  <h2 className="text-md font-bold text-gray-800 mb-8 text-left">
+     <section className="w-full  py-5">
+  <h2 className="text-xl  text-gray-800 mb-8 text-left">
     Browse by Specialization
   </h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -117,10 +128,18 @@ const Consultancy = () => {
 
 
 {/* next card  */}
-  <div className=" mx-auto p-6 bg-gray-50 ">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Available Consultants</h1>
+  <div className=" py-5  ">
+      <h1 className="text-2xl  text-gray-800 mb-6 ml-5">Available Consultants</h1>
       
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+
+
+      {/* <div
+  className={`bg-white rounded-lg shadow-md p-6 border border-gray-200 ${
+    compact ? "w-[1595px] h-[206px]" : "w-full"
+  }`}
+> */}
+
         {/* Header Section */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-start space-x-4">
@@ -136,7 +155,7 @@ const Consultancy = () => {
             
             {/* Basic Info */}
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">CA Rajesh Kumar</h2>
+              <h2 className="text-xl  text-gray-900">CA Rajesh Kumar</h2>
               <p className="text-gray-600 mb-1">Options Trading & Risk Management</p>
               <p className="text-gray-500 text-sm">12 years experience</p>
               
@@ -209,7 +228,7 @@ const Consultancy = () => {
           {/* Price and Actions */}
           <div className="flex flex-col items-end space-y-3">
             <div className="text-right">
-              <div className="text-2xl font-bold text-gray-900">₹2,999</div>
+              <div className="text-2xl  text-gray-900">₹2,999</div>
               <div className="text-sm text-gray-500">per session</div>
             </div>
             
@@ -251,8 +270,8 @@ const Consultancy = () => {
 
 
 {/* next card  2 */}
-  <div className=" mx-auto p-6 bg-gray-50 ">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Available Consultants</h1>
+  <div className=" py-5  ">
+      <h1 className="text-2xl  text-gray-800 mb-6 ml-5">Available Consultants</h1>
       
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
         {/* Header Section */}
@@ -268,9 +287,10 @@ const Consultancy = () => {
               <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
             </div>
             
+
             {/* Basic Info */}
             <div className="text-sm">
-              <h2 className="text-xl font-semibold text-gray-900">CA Priya Sharma</h2>
+              <h2 className="text-xl  text-gray-900">CA Priya Sharma</h2>
               <p className="text-gray-600 mb-1">Technical Analysis & Chart Patterns</p>
               <p className="text-gray-500 text-sm">8 years experience</p>
               
@@ -348,7 +368,7 @@ const Consultancy = () => {
           {/* Price and Actions */}
           <div className="flex flex-col items-end space-y-3">
             <div className="text-right">
-              <div className="text-2xl font-bold text-gray-900">₹2,499</div>
+              <div className="text-2xl  text-gray-900">₹2,499</div>
               <div className="text-sm text-gray-500">per session</div>
             </div>
             
@@ -387,8 +407,8 @@ const Consultancy = () => {
 
 
     {/* next card  3 */}
-  <div className=" mx-auto p-6 bg-gray-50 ">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Available Consultants</h1>
+  <div className=" py-5  ">
+      <h1 className="text-2xl  text-gray-800 mb-6 ml-5">Available Consultants</h1>
       
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
         {/* Header Section */}
@@ -406,7 +426,7 @@ const Consultancy = () => {
             
             {/* Basic Info */}
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">CA Amit Patel</h2>
+              <h2 className="text-xl  text-gray-900">CA Amit Patel</h2>
               <p className="text-gray-600 mb-1">Portfolio Management & Investment Planning
 
 </p>
@@ -485,7 +505,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
           {/* Price and Actions */}
           <div className="flex flex-col items-end space-y-3">
             <div className="text-right">
-              <div className="text-2xl font-bold text-gray-900">₹3499</div>
+              <div className="text-2xl  text-gray-900">₹3499</div>
               <div className="text-sm text-gray-500">per session</div>
             </div>
             
@@ -524,7 +544,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
 
 
     <section className="w-full px-4 sm:px-6 lg:px-8 mt-10 mb-16 border border-gray-300 shadow-md ">
-      <h2 className="text-xl font-bold text-gray-800 mb-10 text-center ">
+      <h2 className="text-xl pt-10 text-gray-800 mb-10 text-center ">
       How Consultancy Works
 
       </h2>
@@ -532,7 +552,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
         {/* Expert Instructors */}
         <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6  transition text-center">
           <FaBook className="text-5xl text-yellow-500" />
-          <h3 className="text-xl font-semibold">1. Choose Expert
+          <h3 className="text-xl ">1. Choose Expert
 </h3>
           <p className="text-sm text-gray-600">
            Select from our verified CA consultants based on your specific needs and expertise required
@@ -542,7 +562,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
         {/* Interactive Learning */}
         <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6   transition text-center">
           <FaUserAlt className="text-5xl text-yellow-500" />
-          <h3 className="text-xl font-semibold">2. Book Session
+          <h3 className="text-xl ">2. Book Session
 </h3>
           <p className="text-sm text-gray-600">
    Schedule at your convenient time and choose your preferred meeting type (video, phone, or in-person)
@@ -553,7 +573,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
         {/* Proven Results */}
         <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6   transition text-center">
           <FaTrophy className="text-5xl text-yellow-500" />
-          <h3 className="text-xl font-semibold">3. Get Guidance
+          <h3 className="text-xl ">3. Get Guidance
 
 </h3>
           <p className="text-sm text-gray-600">
@@ -568,7 +588,7 @@ I specialize in helping clients build robust investment portfolios tailored to t
 
 <div className="w-full px-4 sm:px-6 lg:px-8 mt-10 mb-16 border border-gray-300 shadow-md text-center pt-10 pb-5  bg-gray-50">
   <div className=" mx-auto   p-6">
-    <p className="text-center text-lg font-semibold mb-6 pb-5">Why Choose Our Consultants?</p>
+    <p className="text-center text-lg  mb-6 pb-5">Why Choose Our Consultants?</p>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Item 1 */}
@@ -661,11 +681,15 @@ I specialize in helping clients build robust investment portfolios tailored to t
 
 
     </div>
+    
 
-    <Footer/>
 
-    </>
+
+     
+    </div>
+     {showFooter && <Footer />}
+       </>
   );
 };
 
-export default Consultancy;
+export default Consultancy ;

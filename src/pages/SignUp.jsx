@@ -37,7 +37,7 @@ const SignUp = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://69.62.78.239:4000/api/v1/auth/register",
+        url: "https://cakistockmarket.com/api/v1/auth/register",
         headers: { "Content-Type": "application/json" },
         data: {
           name: formData.name,

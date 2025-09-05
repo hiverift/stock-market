@@ -12,6 +12,7 @@ import { BsFilterCircle } from "react-icons/bs";
 import { AiOutlineSecurityScan,  } from "react-icons/ai";
 import { RiGroupLine } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -43,13 +44,56 @@ import { CiHeart } from "react-icons/ci";
     },
   ];
 
+
+
+  
+// Removed duplicate About component declaration and logic.
+// Navigation logic can be added to the main About component below if needed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const About = () => {
+
+
+
+
+  const navigate = useNavigate();
+
+  const handleExploreCourses = () => {
+  navigate("/courses");  // ✅ Course page pe le jaega
+};
+
+const handleGetInTouch = () => {
+  navigate("/contact"); // ✅ Contact page pe le jaega
+};
+
+
   return (
+
+
+
+
+
+
+
+
+    
 
     <>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 mb-16 space-y-8 font-sans ">
    <div className="text-center py-8">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+  <h1 className="text-2xl sm:text-3xl md:text-4xl  text-gray-900 mb-3">
     About CA ki Stock Market
   </h1>
   <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
@@ -65,12 +109,12 @@ const About = () => {
      <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 lg:px-20 py-12 bg-white">
   {/* Left Section */}
   <div className="md:w-1/2 space-y-6">
-    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+    <h1 className="text-xl sm:text-2xl md:text-3xl  text-gray-900">
       Who We Are
     </h1>
     <p className="text-gray-600 leading-relaxed">
       CA ki Stock Market is a comprehensive educational and consultancy
-      platform founded with a clear mission: <span className="font-bold text-gray-800">Learn</span> | <span className="font-bold text-gray-800">Earn</span> | <span className="font-bold text-gray-800">Grow </span>
+      platform founded with a clear mission: <span className=" text-gray-800">Learn</span> | <span className=" text-gray-800">Earn</span> | <span className=" text-gray-800">Grow </span>
       with complete transparency and authenticity.
     </p>
     <p className="text-gray-600 leading-relaxed">
@@ -86,7 +130,7 @@ const About = () => {
     <div className="bg-yellow-100   p-4 rounded-full flex items-center justify-center">
       <FaBookOpen className=" text-2xl text-amber-500" />
     </div>
-    <h1 className="text-lg font-semibold">Learn</h1>
+    <h1 className="text-lg ">Learn</h1>
     <p className="text-sm text-gray-500">Expert Education</p>
   </div>
   
@@ -94,7 +138,7 @@ const About = () => {
     <div className="bg-yellow-100  p-4 rounded-full flex items-center justify-center">
       <FaArrowTrendUp className=" text-2xl text-amber-500" />
     </div>
-    <h1 className="text-lg font-semibold">Earn</h1>
+    <h1 className="text-lg ">Earn</h1>
     <p className="text-sm text-gray-500">Financial Growth</p>
   </div>
   
@@ -102,7 +146,7 @@ const About = () => {
     <div className="bg-yellow-100  p-4 rounded-full flex items-center justify-center">
       <BsFilterCircle className=" text-2xl text-amber-500" />
     </div>
-    <h1 className="text-lg font-semibold">Grow</h1>
+    <h1 className="text-lg ">Grow</h1>
     <p className="text-sm text-gray-500">With Transparency</p>
   </div>
 </div>
@@ -126,7 +170,7 @@ const About = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl  text-gray-900 mb-3 sm:mb-4">
             Our Mentor
           </h1>
           <div className="inline-block bg-gray-300 px-4 sm:px-6 py-2 rounded-md">
@@ -153,7 +197,7 @@ const About = () => {
               
               {/* Name and Title */}
               <div className="mb-4">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl  text-gray-900 mb-2">
                   CA Paras Muradia
                 </h2>
                 <div className="flex items-center justify-center lg:justify-start space-x-2 text-yellow-600">
@@ -187,7 +231,7 @@ const About = () => {
                 
                 {/* Expertise Areas */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Expertise Areas:</h3>
+                  <h3 className="text-lg  text-gray-900 mb-4">Expertise Areas:</h3>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -210,11 +254,11 @@ const About = () => {
                 
                 {/* Achievements */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Achievements:</h3>
+                  <h3 className="text-lg  text-gray-900 mb-4">Achievements:</h3>
                   
                   {/* Years Experience */}
                   <div className="text-center bg-yellow-50 rounded-lg p-4 mb-4">
-                    <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-1">
+                    <div className="text-3xl sm:text-4xl  text-yellow-600 mb-1">
                       12+
                     </div>
                     <p className="text-gray-700 text-sm font-medium">
@@ -224,7 +268,7 @@ const About = () => {
                   
                   {/* Students Guided */}
                   <div className="text-center bg-yellow-50 rounded-lg p-4 p">
-                    <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-1">
+                    <div className="text-3xl sm:text-4xl  text-yellow-600 mb-1">
                       50,000+
                     </div>
                     <p className="text-gray-700 text-sm font-medium">
@@ -241,7 +285,7 @@ const About = () => {
             <div className="flex items-start space-x-3">
               <Heart className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg  text-gray-900 mb-3">
                   Mission Statement
                 </h3>
                 <blockquote className="text-gray-700 text-sm sm:text-base leading-relaxed italic">
@@ -261,7 +305,7 @@ const About = () => {
      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="text-center mb-10">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our Vision & Values</h2>
+        <h2 className="text-2xl sm:text-3xl  text-gray-900">Our Vision & Values</h2>
         <p className="text-sm sm:text-base text-gray-600 mt-2">
           The principles that guide our mission and define our commitment.
         </p>
@@ -275,7 +319,7 @@ const About = () => {
             className={`rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col items-center text-center gap-4 ${value.color}`}
           >
             <div className="p-3 rounded-full bg-white border">{value.icon}</div>
-            <h3 className="text-lg font-semibold text-gray-800">{value.title}</h3>
+            <h3 className="text-lg  text-gray-800">{value.title}</h3>
             <p className="text-sm text-gray-700 leading-relaxed">{value.description}</p>
           </div>
         ))}
@@ -286,7 +330,7 @@ const About = () => {
 <div className="border-t-2  py-12 px-6 md:px-12 lg:px-20 bg-white border md:border-gray-200 rounded-md">
   {/* Title Section */}
   <div className="text-center mb-10">
-    <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+    <h1 className="text-2xl md:text-3xl  text-gray-900">
       Why Choose CA ki Stock Market?
     </h1>
     <p className="text-gray-600 text-sm md:text-base mt-2">
@@ -301,7 +345,7 @@ const About = () => {
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
         <PiMedalLight className="text-yellow-600 text-3xl" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+      <h2 className="text-lg  text-gray-900 mb-2">
         CA Certified
       </h2>
       <p className="text-gray-600 text-sm leading-relaxed">
@@ -314,7 +358,7 @@ const About = () => {
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
         <AiOutlineSecurityScan  className="text-yellow-600 text-3xl" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+      <h2 className="text-lg d text-gray-900 mb-2">
         SEBI Compliant
       </h2>
       <p className="text-gray-600 text-sm leading-relaxed">
@@ -327,7 +371,7 @@ const About = () => {
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
         <RiGroupLine  className="text-yellow-600 text-3xl" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+      <h2 className="text-lg  text-gray-900 mb-2">
         Community Focus
       </h2>
       <p className="text-gray-600 text-sm leading-relaxed">
@@ -340,7 +384,7 @@ const About = () => {
       <div className="bg-yellow-100 p-4 rounded-full mb-4">
         <CiHeart  className="text-yellow-600 text-3xl" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+      <h2 className="text-lg  text-gray-900 mb-2">
         Student First
       </h2>
       <p className="text-gray-600 text-sm leading-relaxed">
@@ -355,17 +399,17 @@ const About = () => {
 
 
  <div className="bg-yellow-400 py-10 px-6 md:px-12 lg:px-20 text-center rounded-md">
-      <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-gray-900 mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-2xl  text-gray-900 mb-4">
         Ready to Join Our Mission?
       </h2>
       <p className="text-base sm:text-lg md:text-md text-gray-800 mb-6 mx-auto">
       Be part of the change towards transparent and authentic financial education
       </p>
       <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <button className="w-full sm:w-auto bg-gray-900 text-white px-6 py-1 rounded-md hover:bg-gray-800 transition">
+        <button  onClick={handleExploreCourses} className="w-full sm:w-auto bg-gray-900 text-white px-6 py-1 rounded-md hover:bg-gray-800 transition">
          Explore Our Courses
         </button>
-        <button className="w-full sm:w-auto bg-white  text-gray-900 border border-gray-900 px-6 py-1 rounded-md md:hover:bg-gray-900 md:hover:text-white
+        <button onClick={handleGetInTouch} className="w-full sm:w-auto bg-white  text-gray-900 border border-gray-900 px-6 py-1 rounded-md md:hover:bg-gray-900 md:hover:text-white
          transition">
          Get in Touch
         </button>

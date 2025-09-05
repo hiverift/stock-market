@@ -111,16 +111,16 @@ const Consultancy = [
   const FAQBox = ({ title, data, category }) => (
 
   
-    <div className="py-12 px-6 md:px-12 lg:px-20 bg-white">
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 shadow-lg rounded-lg p-6">
-        <div className="flex items-center mb-8">
+    <div className="py-6 px-6 md:px-12 lg:px-20 bg-white">
+      <div className="max-w-4xl mx-auto bg-white border border-gray-200 shadow-lg rounded-lg p-5">
+        <div className="flex items-center mb-4">
           <div className="bg-yellow-100 p-2 rounded-full mr-3">
             <FaQuestionCircle className="text-yellow-600 text-xl" />
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{title}</h1>
+          <h1 className="text-2xl md:text-3xl  text-gray-900">{title}</h1>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {data.map((faq, index) => (
             <div
               key={index}
@@ -130,7 +130,7 @@ const Consultancy = [
                 onClick={() => toggleFAQ(category, index)}
                 className="w-full flex justify-between items-center text-left p-4 focus:outline-none"
               >
-                <span className="text-gray-900 font-medium">{faq.question}</span>
+                <span className="text-gray-900 font-normal ">{faq.question}</span>
                 {openIndex[category] === index ? (
                   <FaChevronUp className="text-yellow-600" />
                 ) : (
@@ -154,7 +154,7 @@ const Consultancy = [
    
     <div className="py-12 px-4 bg-white mt-20">
       <div className="flex flex-col items-center text-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+        <h1 className="text-xl md:text-3xl  text-gray-900">
           Frequently Asked Questions
         </h1>
         <p className="text-gray-600 text-sm md:text-base mt-2 mb-6">
@@ -187,7 +187,7 @@ const Consultancy = [
 
 
          {/* Quick Access Section */}
-       <div className="max-w-4xl mx-auto bg-yellow-100 border border-amber-400 rounded-lg p-6 shadow-md mt-10">
+       {/* <div className="max-w-4xl mx-auto bg-yellow-100 border border-amber-400 rounded-lg p-6 shadow-md mt-10">
          <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
            Quick Access
          </h1>
@@ -207,7 +207,7 @@ const Consultancy = [
              </div>
            ))}
          </div>
-       </div>
+       </div> */}
 
 
 

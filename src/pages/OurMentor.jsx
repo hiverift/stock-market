@@ -10,7 +10,7 @@ const MentorCard = () => {
     <div className="bg-gray-50 py-10">
       {/* Heading */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-gray-900">Our Mentors</h2>
+        <h2 className="text-3xl  text-gray-900">Our Mentors</h2>
         <p className="text-gray-600 mt-2">
           Learn from experienced professionals who are committed to your success
         </p>
@@ -35,7 +35,7 @@ const MentorCard = () => {
         {/* Right: Content */}
         <div className="flex-1 md:w-2/3 space-y-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-900">CA Paras Muradia</h3>
+            <h3 className="text-xl  text-gray-900">CA Paras Muradia</h3>
             <div className="flex items-center text-gray-600 text-sm mt-1 gap-1">
               <HiOutlineBadgeCheck className="text-yellow-500" /> Chartered Accountant
             </div>
@@ -62,15 +62,15 @@ const MentorCard = () => {
           {/* Stats */}
           <div className="flex flex-wrap justify-between mt-5 gap-5 text-center">
             <div className="flex-1 min-w-[100px]">
-              <h4 className="text-xl font-bold text-gray-900">12+</h4>
+              <h4 className="text-xl  text-gray-900">12+</h4>
               <p className="text-gray-500 text-sm">Years Experience</p>
             </div>
             <div className="flex-1 min-w-[100px]">
-              <h4 className="text-xl font-bold text-gray-900">50,000+</h4>
+              <h4 className="text-xl text-gray-900">50,000+</h4>
               <p className="text-gray-500 text-sm">Students Guided</p>
             </div>
             <div className="flex-1 min-w-[100px]">
-              <h4 className="text-xl font-bold text-gray-900">100%</h4>
+              <h4 className="text-xl  text-gray-900">100%</h4>
               <p className="text-gray-500 text-sm">Transparency</p>
             </div>
           </div>

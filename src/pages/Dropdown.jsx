@@ -62,7 +62,7 @@ const FAQSection = () => {
     <div className="w-full max-w-4xl mx-auto mt-12 px-4">
       {/* Section Heading */}
       <div className="text-center mb-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-3">
+        <h2 className="text-2xl  text-gray-900 mb-3">
           Frequently Asked Questions
         </h2>
         <p className="text-md text-gray-600">
@@ -81,7 +81,7 @@ const FAQSection = () => {
               className="flex justify-between items-center cursor-pointer"
               onClick={() => toggleDropdown(index)}
             >
-              <h2 className="text-lg md:text-md font-semibold text-gray-900">
+              <h2 className="text-lg md:text-md  text-gray-900">
                 {faq.question}
               </h2>
               {openIndex === index ? (

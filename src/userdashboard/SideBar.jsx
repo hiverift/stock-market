@@ -48,10 +48,13 @@ const Sidebar = () => {
       </div>
 
       {/* Sidebar */}
-      <div className={`fixed top-0 left-0 h-full md:h-screen bg-white shadow-md z-40 transform transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:w-64 w-64 flex flex-col py-6 px-4`}>
-        <div className="flex-1">
-          <h1 className="text-xl font-bold mb-8">CA ki Stock Market</h1>
+      <div
+        className={`fixed top-0 left-0 h-screen bg-white shadow-md z-40 transform transition-transform duration-300
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+        md:translate-x-0 md:w-64 w-64 flex flex-col py-6 px-4`}
+      >
+        <div className="flex-1 overflow-y-auto">
+          <h1 className="text-xl  mb-8">CA ki Stock Market</h1>
           <nav className="flex flex-col gap-4">
             {menuItems.map((item, idx) => (
               <NavLink
@@ -91,10 +94,12 @@ const Sidebar = () => {
       </div>
 
       {/* Overlay for mobile */}
-      {isOpen && <div 
-        className="fixed inset-0 bg-black bg-opacity-20 z-30 md:hidden" 
-        onClick={() => setIsOpen(false)}
-      ></div>}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-20 z-30 md:hidden"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
     </>
   );
 };

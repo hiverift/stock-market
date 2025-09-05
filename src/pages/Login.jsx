@@ -35,7 +35,7 @@ function LoginPage() {
         : { mobile: formData.mobile, password: formData.password, role: "user" }; // adjust backend if mobile login is supported
 
       const response = await axios.post(
-        "http://69.62.78.239:4000/api/v1/auth/login",
+        "https://cakistockmarket.com/api/v1/auth/login",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -71,7 +71,7 @@ function LoginPage() {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Welcome Back</h2>
+          <h2 className="text-2xl  text-gray-800">Welcome Back</h2>
           <p className="text-gray-500 text-sm">Sign in to access your dashboard</p>
         </div>
 
@@ -79,7 +79,7 @@ function LoginPage() {
         <div className="flex rounded-lg bg-gray-100 mb-6">
           <button
             onClick={() => setActiveTab("email")}
-            className={`flex-1 py-2 text-sm font-medium rounded-lg ${
+            className={`flex-1 py-2 text-sm  rounded-lg ${
               activeTab === "email"
                 ? "bg-white shadow text-gray-800"
                 : "text-gray-500"
@@ -91,7 +91,7 @@ function LoginPage() {
           </button>
           <button
             onClick={() => setActiveTab("mobile")}
-            className={`flex-1 py-2 text-sm font-medium rounded-lg ${
+            className={`flex-1 py-2 text-sm  rounded-lg ${
               activeTab === "mobile"
                 ? "bg-white shadow text-gray-800"
                 : "text-gray-500"
@@ -107,7 +107,7 @@ function LoginPage() {
         <form className="space-y-4" onSubmit={handleLogin}>
           {activeTab === "mobile" && (
             <div>
-              <label className="text-sm font-medium text-gray-700">Mobile Number</label>
+              <label className="text-sm  text-gray-700">Mobile Number</label>
               <div className="relative mt-1">
                 <PhoneIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 <input
@@ -124,7 +124,7 @@ function LoginPage() {
 
           {activeTab === "email" && (
             <div>
-              <label className="text-sm font-medium text-gray-700">Email Address</label>
+              <label className="text-sm  text-gray-700">Email Address</label>
               <div className="relative mt-1">
                 <EnvelopeIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 <input
@@ -141,7 +141,7 @@ function LoginPage() {
 
           {/* Password */}
           <div>
-            <label className="text-sm font-medium text-gray-700">Password</label>
+            <label className="text-sm  text-gray-700">Password</label>
             <div className="relative mt-1">
               <LockClosedIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
               <input
@@ -164,7 +164,7 @@ function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-yellow-400 text-black font-medium py-2 rounded-lg hover:bg-yellow-500 transition"
+            className="w-full bg-yellow-400 text-black  py-2 rounded-lg hover:bg-yellow-500 transition"
           >
             {loading ? "Logging in..." : "Sign In"}
           </button>
@@ -176,7 +176,7 @@ function LoginPage() {
         {/* Footer */}
         <p className="text-center text-sm text-gray-600">
           New to CA ki Stock Market?{" "}
-          <a href="#" className="text-yellow-600 font-medium hover:underline">Register here</a>
+          <a href="#" className="text-yellow-600  hover:underline">Register here</a>
         </p>
       </div>
 
