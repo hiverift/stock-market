@@ -4,6 +4,7 @@ import { FaStar, FaRegClock } from "react-icons/fa";
 import { MdGroup } from "react-icons/md";
 import { CiSearch, CiFilter } from "react-icons/ci";
 import cardImage from "../assets/image/card.jpg";
+import config from "../pages/config"; // ✅ works in Vite
 
 export default function CourseHero() {
   const [activeTab, setActiveTab] = useState("live");
@@ -17,7 +18,7 @@ export default function CourseHero() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://69.62.78.239:4000/api/v1/courses/getAllCourses");
+        const res = await fetch(`${config.BASE_URL}courses/getAllCourses`);
         const data = await res.json();
 
         const liveCourses = data.result.filter((course) => course.mode === "Live");

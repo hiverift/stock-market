@@ -3,13 +3,13 @@ import { EnvelopeIcon, PhoneIcon, LockClosedIcon } from "@heroicons/react/24/out
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import config from "./config"; // ✅ works in Vite
 
 function LoginPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("mobile");
   const [formData, setFormData] = useState({ email: "", mobile: "", password: "" });
   const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -35,7 +35,7 @@ function LoginPage() {
         : { mobile: formData.mobile, password: formData.password, role: "user" }; // adjust backend if mobile login is supported
 
       const response = await axios.post(
-        "https://cakistockmarket.com/api/v1/auth/login",
+        `${config.BASE_URL}auth/login`,
         payload,
         { headers: { "Content-Type": "application/json" } }
       );

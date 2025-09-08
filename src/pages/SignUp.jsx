@@ -3,6 +3,7 @@ import { FaUser, FaEnvelope, FaPhoneAlt, FaLock } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import config from "./config"; // ✅ works in Vite
 
 const SignUp = () => {
   const navigate = useNavigate(); // Initialize navigate
@@ -37,7 +38,7 @@ const SignUp = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "https://cakistockmarket.com/api/v1/auth/register",
+        url:`${config.BASE_URL}auth/register`,
         headers: { "Content-Type": "application/json" },
         data: {
           name: formData.name,

@@ -44,13 +44,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
+                <a href="/courses" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
                   <BookOpen className="w-4 h-4" />
                   <span className="text-sm">Courses</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
+                <a href="/" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
                   <Users className="w-4 h-4" />
                   <span className="text-sm">Our Mentors</span>
                 </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
+                <a href="/faq" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
                   <HelpCircle className="w-4 h-4" />
                   <span className="text-sm">FAQ</span>
                 </a>
@@ -93,7 +93,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
+                <a href="/Contact" className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition-colors">
                   <Headphones className="w-4 h-4" />
                   <span className="text-sm">Contact Support</span>
                 </a>
