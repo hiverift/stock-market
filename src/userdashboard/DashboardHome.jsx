@@ -92,7 +92,7 @@ const upcomingEvents = [
                     className="bg-yellow-400 h-2 rounded-full"
                     style={{ width: `${course.progress}%` }}
                   ></div>
-                  <span className="absolute right-2 top-5 text-xs text-gray-700 font-semibold">
+                  <span className="absolute right-2 top-1 pt-5 md:pt-0 text-xs text-gray-700 font-semibold">
                     {course.progress}% complete
                   </span>
                 </div>

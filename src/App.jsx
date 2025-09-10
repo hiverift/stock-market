@@ -8,7 +8,7 @@ import Webinars from "./pages/Webinars";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
-import Admin from "./pages/Admin";
+// import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
@@ -23,19 +23,32 @@ import DashboardHome from "./userdashboard/DashboardHome";
 import CheckoutPage from "./pages/CheckoutPage";
 import Appointment from "./pages/Appointment";
 
+// ✅ Admin Dashboard pages
+import AdminDashboard from "./Admindashboard/AdminDashboard";
+import AdminSideBar from "./Admindashboard/AdminSideBar";
+import AdminCourse from "./Admindashboard/AdminCourse";
+import AdminWebinar from "./Admindashboard/AdminWebinar";
+import AdminAppoinment from "./Admindashboard/AdminAppoinment"; 
+import AdminDashboardHome from "./Admindashboard/AdminDashboardHome";
+import Adminpayments from "./Admindashboard/Adminpayments"; 
+import UserManagement from "./Admindashboard/UserManagment";
+import KycVerification from "./Admindashboard/Kycverification";
+// import AdminCategory from "./Admindashboard/AdminCategory";
+import CategorySection from "./Admindashboard/CategorySection";
+import SubcategorySection from "./Admindashboard/SubcategorySection";
+
+
 // Wrapper to conditionally show Navbar
 const AppWrapper = ({ children }) => {
   const location = useLocation();
   const hideNavbarPaths = [
     "/user-dashboard",
-    "/user-dashboard/my-courses",
-    "/user-dashboard/my-consultations",
-    "/user-dashboard/my-webinars",
-    "/user-dashboard/groups",
-    "/user-dashboard/profile-kyc",
+    "/admin-dashboard", // ✅ admin ke liye bhi navbar hatana hai
   ];
 
-  const hideNavbar = hideNavbarPaths.some((path) => location.pathname.startsWith(path));
+  const hideNavbar = hideNavbarPaths.some((path) =>
+    location.pathname.startsWith(path)
+  );
 
   return (
     <>
@@ -58,22 +71,39 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin />} />
+          {/* <Route path="/admin" element={<Admin />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-           <Route path="/checkout" element={<CheckoutPage />} />
-             <Route path="/Appointment" element={<Appointment />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/appointment" element={<Appointment />} />
+
+          {/* ✅ User Dashboard nested routes */}
+          <Route path="/user-dashboard" element={<UserDashboard />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="my-courses" element={<MyCourses />} />
+            <Route path="my-consultations" element={<MyConsultations />} />
+            <Route path="my-webinars" element={<MyWebinars />} />
+            <Route path="groups" element={<Groups />} />
+            <Route path="profile-kyc" element={<ProfileKYC />} />
+          </Route>
+
+          {/* ✅ Admin Dashboard nested routes */}
+<Route path="/admin-dashboard" element={<AdminDashboard />}>
+  <Route index element={<AdminDashboardHome />} />
+  <Route path="courses" element={<AdminCourse />} />
+  <Route path="webinars" element={<AdminWebinar />} />
+  <Route path="appointments" element={<AdminAppoinment />} />
+  <Route path="payments" element={<Adminpayments />} />
+  <Route path="user-management" element={<UserManagement />} />
+  <Route path="kyc-verification" element={<KycVerification />} />
+  <Route path="CategorySection" element={<CategorySection/>} />
+  <Route path="SubcategorySection" element={<SubcategorySection />} />  
 
 
-          {/* User Dashboard nested routes */}
-       <Route path="/user-dashboard" element={<UserDashboard />}>
-  <Route index element={<DashboardHome />} />
-  <Route path="my-courses" element={<MyCourses />} />
-  <Route path="my-consultations" element={<MyConsultations />} />
-  <Route path="my-webinars" element={<MyWebinars />} />
-  <Route path="groups" element={<Groups />} />
-  <Route path="profile-kyc" element={<ProfileKYC />} />
+
+
 </Route>
+
 
         </Routes>
       </AppWrapper>

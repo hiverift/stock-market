@@ -178,7 +178,7 @@ const Consultancy = [
       <FAQBox title="Webinars" data={webinars} category="webinars" />
       <FAQBox title="Payments & Access" data={payments} category="payments" />
        <FAQBox title="Groups & KYC" data={Groups } category="Groups" />
-       <FAQBox title="Groups & KYC" data={Groups} category="Groups" />
+       {/* <FAQBox title="Groups & KYC" data={Groups} category="Groups" /> */}
 
 {/* Quick Access Section yahan paste karo */}
 
