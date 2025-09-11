@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 // import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import NotFount from "../src/NotFound";
 
 // User Dashboard pages
 import UserDashboard from "./userdashboard/UserDashboard";
@@ -101,8 +102,9 @@ function App() {
 
 
 
-
 </Route>
+
+  <Route path="*" element={<NotFount />} />
 
 
         </Routes>

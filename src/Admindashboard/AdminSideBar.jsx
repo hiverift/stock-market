@@ -68,7 +68,7 @@ const AdminSideBar = () => {
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
                   `flex items-center gap-3 py-2 px-3 rounded-md transition font-medium ${
-                    isActive ? "bg-yellow-200 text-black" : "text-gray-700 hover:bg-yellow-100"
+                    isActive ? " text-black" : "text-gray-700 hover:bg-yellow-100"
                   }`
                 }
               >
@@ -103,7 +103,7 @@ const AdminSideBar = () => {
                       }`
                     }
                   >
-                    Category Management
+                    Add Category 
                   </NavLink>
                   <NavLink
                     to="/admin-dashboard/SubcategorySection"
@@ -114,7 +114,7 @@ const AdminSideBar = () => {
                       }`
                     }
                   >
-                    Subcategory Management
+                  AddSubcategory
                   </NavLink>
                 </div>
               )}
