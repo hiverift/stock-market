@@ -73,9 +73,9 @@ export default function AppointmentPage() {
   ]);
 
   const services = [
-    { id: 1, name: "Consultation (30 mins)", price: "₹999" },
-    { id: 2, name: "Webinar Access", price: "₹499" },
-    { id: 3, name: "1-on-1 Coaching (1 hr)", price: "₹1999" },
+    { id: 1, name: "Consultation (30 mins)", price: "₹10,000" },
+    { id: 2, name: "Webinar Access", price: "₹10,000" },
+    { id: 3, name: "1-on-1 Coaching (1 hr)", price: "₹10,0000" },
   ];
 
   const timeSlots = ["10:00 AM", "11:00 AM", "2:00 PM", "4:00 PM"];
@@ -99,7 +99,7 @@ export default function AppointmentPage() {
 
   return (
     <div className="px-4 pt-5 md:py-12 bg-gray-50 min-h-screen mt-10">
-      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+     <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row h-[700px]">
         {/* Sidebar */}
         <div className="w-full md:w-1/4 bg-gray-100 border-r p-4 md:p-6 space-y-4 md:space-y-6">
           {["Service", "Schedule", "Payment", "Confirm"].map((label, i) => (

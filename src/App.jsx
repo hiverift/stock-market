@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Courses from "./pages/Course";
@@ -18,7 +23,7 @@ import UserDashboard from "./userdashboard/UserDashboard";
 import MyCourses from "./userdashboard/MyCourses";
 import MyConsultations from "./userdashboard/MyConsultations";
 import MyWebinars from "./userdashboard/MyWebinars";
-import Groups from "./userdashboard/Groups";
+// import Groups from "./userdashboard/Groups";
 import ProfileKYC from "./userdashboard/ProfileKYC";
 import DashboardHome from "./userdashboard/DashboardHome";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -29,15 +34,14 @@ import AdminDashboard from "./Admindashboard/AdminDashboard";
 import AdminSideBar from "./Admindashboard/AdminSideBar";
 import AdminCourse from "./Admindashboard/AdminCourse";
 import AdminWebinar from "./Admindashboard/AdminWebinar";
-import AdminAppoinment from "./Admindashboard/AdminAppoinment"; 
+import AdminAppoinment from "./Admindashboard/AdminAppoinment";
 import AdminDashboardHome from "./Admindashboard/AdminDashboardHome";
-import Adminpayments from "./Admindashboard/Adminpayments"; 
+import Adminpayments from "./Admindashboard/Adminpayments";
 import UserManagement from "./Admindashboard/UserManagment";
 import KycVerification from "./Admindashboard/Kycverification";
 // import AdminCategory from "./Admindashboard/AdminCategory";
 import CategorySection from "./Admindashboard/CategorySection";
 import SubcategorySection from "./Admindashboard/SubcategorySection";
-
 
 // Wrapper to conditionally show Navbar
 const AppWrapper = ({ children }) => {
@@ -84,29 +88,24 @@ function App() {
             <Route path="my-courses" element={<MyCourses />} />
             <Route path="my-consultations" element={<MyConsultations />} />
             <Route path="my-webinars" element={<MyWebinars />} />
-            <Route path="groups" element={<Groups />} />
+            {/* <Route path="groups" element={<Groups />} /> */}
             <Route path="profile-kyc" element={<ProfileKYC />} />
           </Route>
 
           {/* ✅ Admin Dashboard nested routes */}
-<Route path="/admin-dashboard" element={<AdminDashboard />}>
-  <Route index element={<AdminDashboardHome />} />
-  <Route path="courses" element={<AdminCourse />} />
-  <Route path="webinars" element={<AdminWebinar />} />
-  <Route path="appointments" element={<AdminAppoinment />} />
-  <Route path="payments" element={<Adminpayments />} />
-  <Route path="user-management" element={<UserManagement />} />
-  <Route path="kyc-verification" element={<KycVerification />} />
-  <Route path="CategorySection" element={<CategorySection/>} />
-  <Route path="SubcategorySection" element={<SubcategorySection />} />  
+          <Route path="/admin-dashboard" element={<AdminDashboard />}>
+            <Route index element={<AdminDashboardHome />} />
+            <Route path="courses" element={<AdminCourse />} />
+            <Route path="webinars" element={<AdminWebinar />} />
+            <Route path="appointments" element={<AdminAppoinment />} />
+            <Route path="payments" element={<Adminpayments />} />
+            <Route path="user-management" element={<UserManagement />} />
+            <Route path="kyc-verification" element={<KycVerification />} />
+            <Route path="CategorySection" element={<CategorySection />} />
+            <Route path="SubcategorySection" element={<SubcategorySection />} />
+          </Route>
 
-
-
-</Route>
-
-  <Route path="*" element={<NotFount />} />
-
-
+          <Route path="*" element={<NotFount />} />
         </Routes>
       </AppWrapper>
     </Router>

@@ -653,7 +653,7 @@ const MyWebinars = () => {
           </button>
         </div>
 
-        <section className="w-full  px-4 sm:px-6 lg:px-8">
+        {/* <section className="w-full  px-4 sm:px-6 lg:px-8">
           <h2 className="text-md font-bold text-gray-800 mb-8 text-left">
             Browse by Specialization
           </h2>
@@ -667,19 +667,19 @@ const MyWebinars = () => {
                     : "bg-white text-gray-700 hover:bg-yellow-400"
                 }`}
               >
-                <span className="text-lg">{item.icon}</span>
+                <span className="text-lg">{item.icon}</span>z
                 {item.name}
               </button>
             ))}
           </div>
-        </section>
+        </section> */}
 
-        <section className="w-full px-4 sm:px-6 lg:px-8 mt-10 mb-16 border border-gray-300 shadow-md ">
+        {/* <section className="w-full px-4 sm:px-6 lg:px-8 mt-10 mb-16 border border-gray-300 shadow-md ">
           <h2 className="text-xl  text-gray-800 mb-10 text-center pt-5">
             How Our Webinars Work
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border py-10  border-none">
-            {/* Expert Instructors */}
+    
             <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6  transition text-center">
               <FaBook className="text-5xl text-yellow-500" />
               <h3 className="text-md font-semibold">Register</h3>
@@ -689,7 +689,7 @@ const MyWebinars = () => {
               </p>
             </div>
 
-            {/* Interactive Learning */}
+         
             <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6   transition text-center">
               <FaUserAlt className="text-5xl text-yellow-500" />
               <h3 className="text-md font-semibold">Attend Live</h3>
@@ -700,7 +700,7 @@ const MyWebinars = () => {
               </p>
             </div>
 
-            {/* Proven Results */}
+    
             <div className="flex flex-col items-center text-gray-700 gap-4  rounded-lg p-6   transition text-center">
               <FaTrophy className="text-5xl text-yellow-500" />
               <h3 className="text-md font-semibold">Access Recording</h3>
@@ -710,7 +710,7 @@ const MyWebinars = () => {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
       {/* <Footer /> */}
     </div>

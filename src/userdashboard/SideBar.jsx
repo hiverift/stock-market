@@ -22,7 +22,7 @@ const Sidebar = () => {
     { name: "My Courses", icon: <BookOpenIcon className="h-5 w-5" />, path: "/user-dashboard/my-courses" },
     { name: "My Consultations", icon: <ChatBubbleBottomCenterIcon className="h-5 w-5" />, path: "/user-dashboard/my-consultations" },
     { name: "My Webinars", icon: <PresentationChartLineIcon className="h-5 w-5" />, path: "/user-dashboard/my-webinars" },
-    { name: "Groups", icon: <UsersIcon className="h-5 w-5" />, path: "/user-dashboard/groups" },
+    // { name: "Groups", icon: <UsersIcon className="h-5 w-5" />, path: "/user-dashboard/groups" },
     { name: "Profile / KYC", icon: <UserCircleIcon className="h-5 w-5" />, path: "/user-dashboard/profile-kyc" },
   ];
 
@@ -76,13 +76,13 @@ const Sidebar = () => {
 
         {/* Footer buttons */}
         <div className="flex flex-col gap-3 mt-6">
-          <button
+          {/* <button
             onClick={() => { handleEditProfile(); setIsOpen(false); }}
             className="flex items-center gap-3 py-2 px-3 rounded-md hover:bg-yellow-100 transition text-gray-700 font-medium"
           >
             <PencilSquareIcon className="h-5 w-5" />
             <span>Edit Profile</span>
-          </button>
+          </button> */}
           <button
             onClick={handleLogout}
             className="flex items-center gap-3 py-2 px-3 rounded-md hover:bg-red-100 transition text-red-600 font-medium"

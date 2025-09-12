@@ -98,40 +98,53 @@ const AdminCourseTable = () => {
       [name]: name === "syllabus" ? value.split(",").map((item) => item.trim()).filter(Boolean) : value,
     }));
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const url = editCourseId
-        ? `${BASE_URL}/courses/updateCourse/${editCourseId}`
-        : `${BASE_URL}/courses/createCourse`;
-      const method = editCourseId ? "PUT" : "POST";
+  try {
+    const url = editCourseId
+      ? `${BASE_URL}/courses/updateCourse/${editCourseId}`
+      : `${BASE_URL}/courses/createCourse`;
+    const method = editCourseId ? "PUT" : "POST";
 
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        if (editCourseId) {
-          setCourses((prev) =>
-            prev.map((c) => (c.id === editCourseId || c._id === editCourseId ? { ...c, ...data.result } : c))
-          );
-        } else {
-          setCourses((prev) => [...prev, data.result]);
-        }
-        resetForm();
+    const form = new FormData();
+    for (let key in formData) {
+      if (key === "syllabus") {
+        form.append(key, JSON.stringify(formData[key])); // Convert array to string
+      } else if (key === "image" && formData[key]) {
+        form.append(key, formData[key]); // File
       } else {
-        console.error("Error saving course:", data);
+        form.append(key, formData[key]);
       }
-    } catch (err) {
-      console.error("Error submitting form:", err);
-    } finally {
-      setLoading(false);
     }
-  };
+
+    const res = await fetch(url, {
+      method,
+      body: form, // DO NOT SET headers here for FormData
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      if (editCourseId) {
+        setCourses((prev) =>
+          prev.map((c) => (c.id === editCourseId || c._id === editCourseId ? { ...c, ...data.result } : c))
+        );
+      } else {
+        setCourses((prev) => [...prev, data.result]);
+      }
+      resetForm();
+    } else {
+      console.error("Error saving course:", data);
+    }
+  } catch (err) {
+    console.error("Error submitting form:", err);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleEdit = (course) => {
     setFormData({
@@ -278,52 +291,215 @@ const AdminCourseTable = () => {
               <h3 className="text-xl font-bold">{editCourseId ? "Edit Course" : "Add Course"}</h3>
               <button onClick={resetForm}><X size={20} /></button>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-semibold text-gray-700">Title *</label>
-                  <input type="text" name="title" value={formData.title} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required />
-                </div>
-                <div>
-                  <label className="font-semibold text-gray-700">Instructor *</label>
-                  <input type="text" name="instructor" value={formData.instructor} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-semibold text-gray-700">Price *</label>
-                  <input type="number" name="price" value={formData.price} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required />
-                </div>
-                <div>
-                  <label className="font-semibold text-gray-700">Duration *</label>
-                  <input type="text" name="duration" value={formData.duration} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-semibold text-gray-700">Category *</label>
-                  <select name="categoryId" value={formData.categoryId} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required>
-                    <option value="">Select Category</option>
-                    {categories.map(cat => <option key={cat._id} value={cat._id}>{cat.name}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label className="font-semibold text-gray-700">SubCategory *</label>
-                  <select name="subCategoryId" value={formData.subCategoryId} onChange={handleInputChange} className="w-full border px-3 py-2 rounded-xl" required>
-                    <option value="">Select SubCategory</option>
-                    {subCategories.map(sub => <option key={sub._id} value={sub._id}>{sub.name}</option>)}
-                  </select>
-                </div>
-              </div>
+<form onSubmit={handleSubmit} className="space-y-4">
+  {/* Title & Instructor */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label className="font-semibold text-gray-700">Title *</label>
+      <input
+        type="text"
+        name="title"
+        value={formData.title}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      />
+    </div>
+    <div>
+      <label className="font-semibold text-gray-700">Instructor *</label>
+      <input
+        type="text"
+        name="instructor"
+        value={formData.instructor}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      />
+    </div>
+  </div>
 
-              <div className="flex justify-end gap-4">
-                <button type="button" onClick={resetForm} className="px-4 py-2 border rounded-xl">Cancel</button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-xl flex items-center gap-2">
-                  <Plus size={16} /> {editCourseId ? "Update" : "Save"}
-                </button>
-              </div>
-            </form>
+  {/* Price & Duration */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label className="font-semibold text-gray-700">Price *</label>
+      <input
+        type="number"
+        name="price"
+        value={formData.price}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      />
+    </div>
+    <div>
+      <label className="font-semibold text-gray-700">Duration *</label>
+      <input
+        type="text"
+        name="duration"
+        value={formData.duration}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      />
+    </div>
+  </div>
+
+  {/* Level & Mode */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label className="font-semibold text-gray-700">Level *</label>
+      <select
+        name="level"
+        value={formData.level}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+      >
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </div>
+    <div>
+      <label className="font-semibold text-gray-700">Mode *</label>
+      <select
+        name="mode"
+        value={formData.mode}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+      >
+        <option>Online</option>
+        <option>Live</option>
+        <option>Offline</option>
+      </select>
+    </div>
+  </div>
+
+  {/* Category & SubCategory */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label className="font-semibold text-gray-700">Category *</label>
+      <select
+        name="categoryId"
+        value={formData.categoryId}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      >
+        <option value="">Select Category</option>
+        {categories.map((cat) => (
+          <option key={cat._id} value={cat._id}>
+            {cat.name}
+          </option>
+        ))}
+      </select>
+    </div>
+    <div>
+      <label className="font-semibold text-gray-700">SubCategory *</label>
+      <select
+        name="subCategoryId"
+        value={formData.subCategoryId}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+        required
+      >
+        <option value="">Select SubCategory</option>
+        {subCategories.map((sub) => (
+          <option key={sub._id} value={sub._id}>
+            {sub.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  {/* Rating & Students Count */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label className="font-semibold text-gray-700">Rating</label>
+      <input
+        type="number"
+        name="rating"
+        min="0"
+        max="5"
+        value={formData.rating}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+      />
+    </div>
+    <div>
+      <label className="font-semibold text-gray-700">Students Count</label>
+      <input
+        type="number"
+        name="studentsCount"
+        value={formData.studentsCount}
+        onChange={handleInputChange}
+        className="w-full border px-3 py-2 rounded-xl"
+      />
+    </div>
+  </div>
+
+  {/* Syllabus */}
+  <div>
+    <label className="font-semibold text-gray-700">Syllabus (comma separated)</label>
+    <input
+      type="text"
+      name="syllabus"
+      value={formData.syllabus.join(", ")}
+      onChange={handleInputChange}
+      className="w-full border px-3 py-2 rounded-xl"
+    />
+  </div>
+
+  {/* Image */}
+  <div>
+    <label className="font-semibold text-gray-700">Image</label>
+    <input
+      type="file"
+      name="image"
+      accept="image/*"
+      onChange={(e) =>
+        setFormData((prev) => ({
+          ...prev,
+          image: e.target.files[0],
+        }))
+      }
+      className="w-full border px-3 py-2 rounded-xl"
+    />
+  </div>
+
+  {/* Description */}
+  <div>
+    <label className="font-semibold text-gray-700">Description</label>
+    <textarea
+      name="description"
+      value={formData.description}
+      onChange={handleInputChange}
+      rows="3"
+      className="w-full border px-3 py-2 rounded-xl"
+    ></textarea>
+  </div>
+
+  {/* Actions */}
+  <div className="flex justify-end gap-4">
+    <button
+      type="button"
+      onClick={resetForm}
+      className="px-4 py-2 border rounded-xl"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+      className="px-4 py-2 bg-blue-600 text-white rounded-xl flex items-center gap-2"
+    >
+      <Plus size={16} /> {editCourseId ? "Update" : "Save"}
+    </button>
+  </div>
+</form>
+
+
+
           </div>
         </div>
       )}

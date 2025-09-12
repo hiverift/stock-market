@@ -65,82 +65,93 @@ const upcomingEvents = [
           </div>
         ))}
       </div>
+{/* Continue Learning + Upcoming Events */}
+<div className="flex flex-col md:flex-row gap-6 mt-8">
+  {/* Continue Learning */}
+  <div className="flex-1">
+    <h2 className="text-xl font-bold mb-4">Continue Learning</h2>
+    <div className="grid grid-cols-1 gap-6">
+      {learningCourses.map((course, idx) => (
+        <div
+          key={idx}
+          className="bg-white shadow rounded-lg p-4 flex flex-col justify-between h-full border border-gray-200"
+        >
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="font-semibold">{course.title}</h3>
+              <p className="text-sm text-gray-500">{course.type}</p>
+            </div>
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded text-sm">
+              Continue
+            </button>
+          </div>
 
-      {/* Continue Learning + Upcoming Events */}
-      <div className="flex flex-col md:flex-row gap-6 mt-8">
-        {/* Continue Learning */}
-        <div className="flex-1">
-          <h2 className="text-xl font-bold mb-4">Continue Learning</h2>
-          <div className="grid grid-cols-1 gap-6">
-            {learningCourses.map((course, idx) => (
-              <div
-                key={idx}
-                className="bg-white shadow rounded-lg p-4 flex flex-col justify-between h-full border border-gray-200"
-              >
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="font-semibold">{course.title}</h3>
-                    <p className="text-sm text-gray-500">{course.type}</p>
-                  </div>
-                  <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded text-sm">
-                    Continue
-                  </button>
-                </div>
+          {/* Progress Bar */}
+          <div className="w-full bg-gray-200 h-2 rounded-full mt-3 relative">
+            <div
+              className="bg-yellow-400 h-2 rounded-full"
+              style={{ width: `${course.progress}%` }}
+            ></div>
 
-                <div className="w-full bg-gray-200 h-2 rounded-full mt-3 relative">
-                  <div
-                    className="bg-yellow-400 h-2 rounded-full"
-                    style={{ width: `${course.progress}%` }}
-                  ></div>
-                  <span className="absolute right-2 top-1 pt-5 md:pt-0 text-xs text-gray-700 font-semibold">
-                    {course.progress}% complete
-                  </span>
-                </div>
+            {/* % Text (desktop only - inside bar) */}
+            <span className="hidden md:block absolute right-2 -top-5 text-xs text-gray-700 font-semibold">
+              {course.progress}% complete
+            </span>
+          </div>
 
-                <p className="text-sm text-gray-500 mt-1">Next: {course.next}</p>
-              </div>
-            ))}
+          {/* % Text (mobile only - below bar) */}
+          <span className="block md:hidden text-xs text-gray-700 font-semibold mt-1">
+            {course.progress}% complete
+          </span>
+
+          <p className="text-sm text-gray-500 mt-1">Next: {course.next}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Upcoming Events */}
+  <div className="flex-1">
+    <h2 className="text-xl font-bold mb-4">Upcoming Events</h2>
+    <div className="grid grid-cols-1 gap-6">
+      {upcomingEvents.map((event, idx) => (
+        <div
+          key={idx}
+           className="bg-white shadow rounded-lg p-4 flex flex-col justify-between h-full border border-gray-200 relative "
+        >
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="font-semibold">{event.title}</h3>
+              <p className="text-sm text-gray-500">{event.type}</p>
+            </div>
+            <span
+              className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                event.status === "Live"
+                  ? "bg-green-100 text-green-800"
+                  : event.status === "Scheduled"
+                  ? "bg-blue-100 text-blue-800"
+                  : "bg-gray-100 text-gray-800"
+              }`}
+            >
+              {event.status}
+            </span>
+          </div>
+
+          <div className="mt-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <p className="text-sm text-gray-600">{event.schedule}</p>
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded text-sm w-full sm:w-auto">
+              {event.action}
+            </button>
           </div>
         </div>
+      ))}
+    </div>
+  </div>
 
-        {/* Upcoming Events */}
-        <div className="flex-1">
-          <h2 className="text-xl font-bold mb-4">Upcoming Events</h2>
-          <div className="grid grid-cols-1 gap-6">
-            {upcomingEvents.map((event, idx) => (
-              <div
-                key={idx}
-                className="bg-white shadow rounded-lg p-4 flex flex-col justify-between h-full border border-gray-200 relative"
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="font-semibold">{event.title}</h3>
-                    <p className="text-sm text-gray-500">{event.type}</p>
-                  </div>
-                  <span
-                    className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                      event.status === "Live"
-                        ? "bg-green-100 text-green-800"
-                        : event.status === "Scheduled"
-                        ? "bg-blue-100 text-blue-800"
-                        : "bg-gray-100 text-gray-800"
-                    }`}
-                  >
-                    {event.status}
-                  </span>
-                </div>
 
-                <div className="mt-3 flex justify-between items-center">
-                  <p className="text-sm text-gray-600">{event.schedule}</p>
-                  <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded text-sm">
-                    {event.action}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+
+</div>
+
 
       {/* Achievements */}
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
