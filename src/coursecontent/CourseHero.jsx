@@ -51,7 +51,7 @@ export default function CourseHero() {
 
   // ✅ Enroll button → checkout page
   const handleEnroll = (course) => {
-    navigate("/checkout", { state: { course } });
+   navigate("/checkout", { state: { course ,coursetype:'course'} });
   };
 
   // ✅ Loading state
